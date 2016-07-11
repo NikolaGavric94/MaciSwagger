@@ -11,12 +11,10 @@
 
 <!-- Local DataSource -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	<!-- 	destroy-method="close"> -->
 		<property name="driverClassName" value="${database.driverClassName}" />
 		<property name="url" value="${database.url}" />
 		<property name="username" value="${database.username}" />
 		<property name="password" value="${database.password}" />
-		<!-- <property name="defaultAutoCommit" value="false" /> -->
 	</bean>
 
 
@@ -28,12 +26,11 @@
 	<bean name="subjectDao" class="com.maci.dao.impl.SubjectDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-<!-- 
-	<bean name="studentDao" class="com.maci.dao.impl.StudentDaoImpl">
+
+	<!--  <bean name="studentDao" class="com.maci.dao.impl.StudentDaoImpl">
 		<property name="dataSource" ref="dataSource" />
-	</bean> -->
-	
-	
+	</bean>-->
+
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>

@@ -19,8 +19,9 @@ public class IndexController {
 	
 	@RequestMapping(value="/main", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<String> getSubjectCount() {
-		
+
 		int i = subjectService.getCount();
 		return new ResponseEntity<String>("Broj predmeta je: " + i, HttpStatus.OK);
+
 	}
 }
