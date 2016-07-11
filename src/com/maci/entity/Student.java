@@ -3,16 +3,12 @@ package com.maci.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
-@SuppressWarnings("serial") 
-@Entity 
-@Table(name = "STUDENTI") 
+@SuppressWarnings("serial")
 public class Student implements Serializable { 
 	 
 	@Id 
@@ -20,7 +16,7 @@ public class Student implements Serializable {
 	private Long id;
 	private String ime;
 	private String prezime;
-	private List<Predmet> predmeti;
+	private List<Subject> predmeti;
 	
 	public Long getId() {
 		return id;
@@ -46,11 +42,11 @@ public class Student implements Serializable {
 		this.prezime = prezime;
 	}
 	
-	public List<Predmet> getPredmeti() {
+	public List<Subject> getPredmeti() {
 		return predmeti;
 	}
 	
-	public void setPredmeti(List<Predmet> predmeti) {
+	public void setPredmeti(List<Subject> predmeti) {
 		this.predmeti = predmeti;
 	}
 	

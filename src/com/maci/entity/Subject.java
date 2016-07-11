@@ -3,29 +3,25 @@ package com.maci.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @SuppressWarnings("serial") 
-@Entity 
-@Table(name = "PREDMETI") 
-public class Predmet implements Serializable { 
+public class Subject implements Serializable { 
 	 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
-	private Long id; 
+	private Integer id; 
 	private String naziv;
 	private List<Student> studenti;
 	
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
