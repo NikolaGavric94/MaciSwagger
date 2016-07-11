@@ -8,6 +8,8 @@ import com.maci.dao.SubjectDao;
 import com.maci.entity.Subject;
 import com.maci.service.SubjectService;
 
+import oracle.net.aso.s;
+
 public class SubjectServiceImpl implements SubjectService{
 
 	@Autowired
@@ -21,6 +23,11 @@ public class SubjectServiceImpl implements SubjectService{
 	@Override
 	public List<Subject> getAllSubject() {
 		return subjectDao.getAllSubject();
+	}
+
+	@Override
+	public boolean addSubject(Subject subject) {
+		return subjectDao.addSubject(subject);
 	}
 
 }

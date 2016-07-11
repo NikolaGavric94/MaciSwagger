@@ -1,10 +1,10 @@
-package com.maci.dao;
+package com.maci.service;
 
 import java.util.List;
 
 import com.maci.entity.Student;
 
-public interface StudentDao {
+public interface StudentService {
 	
 	public int getCount();
 	

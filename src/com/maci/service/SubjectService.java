@@ -9,5 +9,7 @@ public interface SubjectService {
 	public int getCount();
 	
 	public List<Subject> getAllSubject();
+	
+	public boolean addSubject(Subject subject);
 
 }
