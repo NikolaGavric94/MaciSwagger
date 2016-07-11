@@ -64,14 +64,17 @@ public class IndexController {
 		return new ResponseEntity<String>("Broj studenata je: " + studentService.getCount(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/addStudent", method=RequestMethod.GET, produces="application/json")
+/*	@RequestMapping(value="/addStudent", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<Student> addStudent() {
 		Student toSave= new Student();
 		return new ResponseEntity<Student>(toSave, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value="/addStudent", method=RequestMethod.POST, consumes="application/json")
+	*/
+	@RequestMapping(value="/addStudent", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<String> addStudent(@RequestParam Student s, @RequestParam int id) {
+		Student student= new Student();
+		student.setIme("Test");
+		studentService.addStudent(student);
 		studentService.addStudent(s);
 		return new ResponseEntity<String>("Objekat je sacuvan"+id, HttpStatus.OK);
 	}
