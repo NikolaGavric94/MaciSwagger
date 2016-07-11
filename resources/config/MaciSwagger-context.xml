@@ -19,10 +19,5 @@
 	<!-- Property file used for value substitution -->
 	<context:property-placeholder location="classpath:application.properties" />
 	
-	 <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 
-    	<property name="locations" value="classpath:application.properties"></property>
-    </bean>
-	
-
 </beans>
     

@@ -8,29 +8,31 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-	<!-- Local DataSource -->
+
 <!-- Local DataSource -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		destroy-method="close">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<!-- 	destroy-method="close"> -->
 		<property name="driverClassName" value="${database.driverClassName}" />
 		<property name="url" value="${database.url}" />
 		<property name="username" value="${database.username}" />
 		<property name="password" value="${database.password}" />
-		<property name="defaultAutoCommit" value="false" />
+		<!-- <property name="defaultAutoCommit" value="false" /> -->
 	</bean>
 
-	<bean name="subjectDao" class="com.maci.dao.impl.SubjectDaoImpl">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
 
-	<bean name="studentDao" class="com.maci.dao.impl.StudentDaoImpl">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-	
 	<!-- Services -->
 	<bean name="subjectService" class="com.maci.service.impl.SubjectServiceImpl">
 		<!--<property name="subjectDao" ref="subjectDao"></property>-->
 	</bean>
+	
+	<bean name="subjectDao" class="com.maci.dao.impl.SubjectDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+<!-- 
+	<bean name="studentDao" class="com.maci.dao.impl.StudentDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean> -->
+	
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />

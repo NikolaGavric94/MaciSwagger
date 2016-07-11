@@ -13,14 +13,14 @@ import com.maci.service.SubjectService;
 @RestController
 public class IndexController {
 	
-//	@Autowired
-//	SubjectService subjectService;
+	@Autowired
+	SubjectService subjectService;
 	
 	
 	@RequestMapping(value="/main", method=RequestMethod.GET, produces="application/json")
-	public ResponseEntity<String> getIndex() {
+	public ResponseEntity<String> getSubjectCount() {
 		
-//		int i = subjectService.getCount();
-		return new ResponseEntity<String>("#YOLO + i", HttpStatus.OK);
+		int i = subjectService.getCount();
+		return new ResponseEntity<String>("Broj predmeta je: " + i, HttpStatus.OK);
 	}
 }
