@@ -69,13 +69,9 @@ public class IndexController {
 		return new ResponseEntity<List<Subject>>(subjectService.getSubjectsByStudent(studentId), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/addGrade", method=RequestMethod.GET, produces="application/json")
-	public ResponseEntity<String> addGrade() {
-		StudentSubject s= new StudentSubject();
-		s.setPredmet_id(5);
-		s.setStudent_id(5);
-		s.setOcena(10);
-		studentService.addGrade(s);
+	@RequestMapping(value="/addGrade", method=RequestMethod.PUT, produces="application/json")
+	public ResponseEntity<String> addGrade(@RequestBody StudentSubject studentSubject) {
+		studentService.addGrade(studentSubject);
 		return new ResponseEntity<String>("Objekat je sacuvan" , HttpStatus.OK);
 	}
 }
