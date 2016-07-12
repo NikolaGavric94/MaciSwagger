@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.maci.dao.StudentDao;
 import com.maci.entity.Student;
+import com.maci.entity.StudentSubject;
 import com.maci.service.StudentService;
 
 public class StudentServiceImpl implements StudentService {
@@ -31,6 +32,11 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public List<Student> getStudentsBySubject(int subjectId) {
 		return studentDao.getStudentsBySubject(subjectId);
+	}
+
+	@Override
+	public boolean addGrade(StudentSubject object) {
+		return studentDao.addGrade(object);
 	}
 
 }

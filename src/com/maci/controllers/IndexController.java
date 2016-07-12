@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.maci.entity.Student;
+import com.maci.entity.StudentSubject;
 import com.maci.entity.Subject;
 import com.maci.service.StudentService;
 import com.maci.service.SubjectService;
@@ -66,5 +67,15 @@ public class IndexController {
 	@RequestMapping(value="/subjects/{studentId}", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<List<Subject>> getSubjectsByStudentId(@PathVariable(value = "studentId") Integer studentId) {
 		return new ResponseEntity<List<Subject>>(subjectService.getSubjectsByStudent(studentId), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/addGrade", method=RequestMethod.GET, produces="application/json")
+	public ResponseEntity<String> addGrade() {
+		StudentSubject s= new StudentSubject();
+		s.setPredmet_id(5);
+		s.setStudent_id(5);
+		s.setOcena(10);
+		studentService.addGrade(s);
+		return new ResponseEntity<String>("Objekat je sacuvan" , HttpStatus.OK);
 	}
 }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.maci.dao.StudentDao;
 import com.maci.entity.Student;
+import com.maci.entity.StudentSubject;
 import com.maci.mapper.StudentMapper;
 
 public class StudentDaoImpl implements StudentDao {
@@ -57,6 +58,16 @@ public class StudentDaoImpl implements StudentDao {
 					"WHERE PREDMET_ID="+subjectId;
 		List<Student> students= jdbcTemplate.query(sql, new StudentMapper());
 		return students;
+	}
+
+
+	@Override
+	public boolean addGrade(StudentSubject object) {
+		String sql = "INSERT INTO STUDENT_SUBJECT " +
+				"(STUDENT_ID, PREDMET_ID, OCENA) VALUES (?, ?, ?)";
+		jdbcTemplate.update(sql, new Object[] {object.getStudent_id(), object.getPredmet_id(), object.getOcena()});
+		System.out.println(sql);
+		return true;
 	}
 	
 }
