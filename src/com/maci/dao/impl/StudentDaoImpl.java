@@ -49,5 +49,15 @@ public class StudentDaoImpl implements StudentDao {
 		jdbcTemplate.update(sql, new Object[] {student.getIme(), student.getPrezime()});
 		return true;
 	}
+
+
+	@Override
+	public List<Student> getStudentsBySubject(int subjectId) {
+		String sql= "SELECT STUDENTS.ID, IME, PREZIME FROM STUDENT_SUBJECT "+
+					"JOIN STUDENTS ON STUDENT_SUBJECT.STUDENT_ID=STUDENTS.ID "+
+					"WHERE PREDMET_ID="+subjectId;
+		List<Student> students= jdbcTemplate.query(sql, new StudentMapper());
+		return students;
+	}
 	
 }

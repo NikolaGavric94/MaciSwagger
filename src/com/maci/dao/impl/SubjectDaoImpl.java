@@ -48,4 +48,13 @@ public class SubjectDaoImpl implements SubjectDao{
 		return true;
 	}
 
+	@Override
+	public List<Subject> getSubjectsByStudent(int studentId) {
+		String sql= "SELECT SUBJECTS.ID, SUBJECTS.NAZIV FROM STUDENT_SUBJECT  "+
+				"JOIN SUBJECTS ON STUDENT_SUBJECT.PREDMET_ID=SUBJECTS.ID "+
+				"WHERE STUDENT_ID="+studentId;
+		List<Subject> subjects= jdbcTemplate.query(sql, new SubjectMapper());
+		return subjects;
+	}
+
 }

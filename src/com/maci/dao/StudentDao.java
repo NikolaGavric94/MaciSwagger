@@ -11,4 +11,6 @@ public interface StudentDao {
 	public List<Student> getAllStudents();
 	
 	public boolean addStudent(Student student);
+	
+	public List<Student> getStudentsBySubject(int subjectId);
 }

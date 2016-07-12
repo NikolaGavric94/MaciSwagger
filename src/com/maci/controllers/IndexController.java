@@ -56,4 +56,14 @@ public class IndexController {
 		studentService.addStudent(student);
 		return new ResponseEntity<String>("Objekat je sacuvan", HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/studentsOnSubject", method=RequestMethod.GET, produces="application/json")
+	public ResponseEntity<List<Student>> getStudentsBySubject() {
+		return new ResponseEntity<List<Student>>(studentService.getStudentsBySubject(3), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/subjectsForStudent", method=RequestMethod.GET, produces="application/json")
+	public ResponseEntity<List<Subject>> getSubjectsByStudent() {
+		return new ResponseEntity<List<Subject>>(subjectService.getSubjectsByStudent(1), HttpStatus.OK);
+	}
 }
