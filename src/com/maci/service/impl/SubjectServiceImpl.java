@@ -8,8 +8,6 @@ import com.maci.dao.SubjectDao;
 import com.maci.entity.Subject;
 import com.maci.service.SubjectService;
 
-import oracle.net.aso.s;
-
 public class SubjectServiceImpl implements SubjectService{
 
 	@Autowired

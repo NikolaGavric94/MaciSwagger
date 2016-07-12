@@ -5,6 +5,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.maci.dao.StudentDao;
 import com.maci.entity.Student;
@@ -41,10 +42,11 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
+	@Transactional
 	public boolean addStudent(Student student) {
 		String sql = "INSERT INTO STUDENTS " +
-				"(ID, IME, PREZIME) VALUES (?, ?, ?)";
-		jdbcTemplate.update(sql, new Object[] { student.getId(), student.getIme(), student.getPrezime()});
+				"(IME, PREZIME) VALUES (?, ?)";
+		jdbcTemplate.update(sql, new Object[] {student.getIme(), student.getPrezime()});
 		return true;
 	}
 	

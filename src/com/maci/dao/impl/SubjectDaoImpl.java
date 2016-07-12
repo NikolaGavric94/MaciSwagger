@@ -43,8 +43,8 @@ public class SubjectDaoImpl implements SubjectDao{
 	@Transactional
 	public boolean addSubject(Subject subject) {
 		String sql = "INSERT INTO SUBJECTS " +
-				"(ID, NAZIV) VALUES (?, ?)";
-		jdbcTemplate.update(sql, new Object[] { subject.getId(), subject.getNaziv()});
+				"(NAZIV) VALUES (?)";
+		jdbcTemplate.update(sql, new Object[] {subject.getNaziv()});
 		return true;
 	}
 
