@@ -9,13 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.maci.dao.StudentDao;
 import com.maci.entity.Student;
-import com.maci.entity.Subject;
 import com.maci.mapper.StudentMapper;
-import com.maci.mapper.SubjectMapper;
 
 public class StudentDaoImpl implements StudentDao {
 	
 	private JdbcTemplate jdbcTemplate;
+	@SuppressWarnings("unused")
 	private DataSource dataSource;
 
 	

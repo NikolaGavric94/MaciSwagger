@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,13 +58,13 @@ public class IndexController {
 		return new ResponseEntity<String>("Objekat je sacuvan", HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/studentsOnSubject", method=RequestMethod.GET, produces="application/json")
-	public ResponseEntity<List<Student>> getStudentsBySubject() {
-		return new ResponseEntity<List<Student>>(studentService.getStudentsBySubject(3), HttpStatus.OK);
+	@RequestMapping(value="/students/{subjectId}", method=RequestMethod.GET, produces="application/json")
+	public ResponseEntity<List<Student>> getStudentsBySubjectId(@PathVariable(value = "subjectId") Integer subjectId) {
+		return new ResponseEntity<List<Student>>(studentService.getStudentsBySubject(subjectId), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/subjectsForStudent", method=RequestMethod.GET, produces="application/json")
-	public ResponseEntity<List<Subject>> getSubjectsByStudent() {
-		return new ResponseEntity<List<Subject>>(subjectService.getSubjectsByStudent(1), HttpStatus.OK);
+	@RequestMapping(value="/subjects/{studentId}", method=RequestMethod.GET, produces="application/json")
+	public ResponseEntity<List<Subject>> getSubjectsByStudentId(@PathVariable(value = "studentId") Integer studentId) {
+		return new ResponseEntity<List<Subject>>(subjectService.getSubjectsByStudent(studentId), HttpStatus.OK);
 	}
 }
